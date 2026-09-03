@@ -1,6 +1,6 @@
 # Car Sales Data Mining and UI
 
-A Data Mining Windows desktop application made using C# for exploring a car sales data mining model. The project contains a custom-made desktop UI and data mining modules to visualize results.
+A Data Mining Windows desktop application made using C# for exploring a car sales data mining model. The project contains a custom-made desktop UI and data mining modules for visualizing results.
 
 ## Short summary
 
