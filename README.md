@@ -20,10 +20,15 @@ Note: The UI is custom-built for this project (not generated from templates) and
 
 ## Features
 
-- Import and inspect car sales datasets (CSV / structured data)
-- Data preprocessing (missing values, normalization, basic cleaning)
-- Run and compare mining algorithms and visualizations via the built-in viewers
-- Alternate viewer implementation to compare interaction and visualization approaches
+- Connect to Microsoft Analysis Services mining models using `AdomdClient` (`AdomdConnection`) and discover deployed models.
+- Inspect model contents by querying model `CONTENT` (reads `NODE_NAME`, `NODE_CAPTION`, `NODE_SUPPORT`, `NODE_TYPE`).
+- Filter and browse mining nodes (the apps ignore `NODE_TYPE >= 100` and provide user filtering by node type).
+- Visualize node metrics (`NODE_SUPPORT`) with built-in charts:
+  - `DM\DMViewer\MainForm.cs` — column chart for support values
+  - `DM\AlternateDMViewer\MainForm.cs` — pie chart alternative
+- Present node details in a `DataGridView` for quick inspection and selection.
+- Custom-made desktop UI (hand-crafted WinForms/WPF) focused on interactive, user-driven exploration of deployed mining models — the project is an inspection and visualization tool; preprocessing and training of mining models occur within Analysis Services.
+- Attempts to select a sensible default model (example: `Predict Owner`) when available and lets the user switch between available models in the catalog.
 
 ## Structure
 
