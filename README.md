@@ -2,13 +2,13 @@
 
 A Data Mining Windows desktop application made using C# for exploring a car sales data mining model. The project contains a custom-made desktop UI and data mining modules to preprocess data, run algorithms, and visualize results.
 
-##Short summary
+## Short summary
 
-•	The app connects to Microsoft Analysis Services via AdomdConnection and discovers deployed mining models (querying `$system.DMSCHEMA_MINING_MODELS`).
-•	It inspects model contents by querying `SELECT FLATTENED NODE_NAME, NODE_CAPTION, NODE_SUPPORT, NODE_TYPE FROM [<ModelName>].CONTENT` to read mining nodes and their metrics.
-•	It filters nodes (the code ignores nodes with `NODE_TYPE >= 100` and supports user filtering by NodeType) and exposes node details in a dataGridView.
-•	It visualizes node metrics (`NODE_SUPPORT`) — MainForm.cs uses a column chart; MainForm.cs uses a pie chart — to compare/support analysis results.
-•	The UI is a custom desktop viewer for exploring model outputs (example model name: Predict Owner); actual preprocessing and mining (clustering, classification, association, etc.) have been run inside Analysis Services models, which this project queries and visualizes.
+-	The app connects to Microsoft Analysis Services via AdomdConnection and discovers deployed mining models (querying `$system.DMSCHEMA_MINING_MODELS`).
+-	It inspects model contents by querying `SELECT FLATTENED NODE_NAME, NODE_CAPTION, NODE_SUPPORT, NODE_TYPE FROM [<ModelName>].CONTENT` to read mining nodes and their metrics.
+-	It filters nodes (the code ignores nodes with `NODE_TYPE >= 100` and supports user filtering by NodeType) and exposes node details in a dataGridView.
+-	It visualizes node metrics (`NODE_SUPPORT`) — MainForm.cs uses a column chart; MainForm.cs uses a pie chart — to compare/support analysis results.
+-	The UI is a custom desktop viewer for exploring model outputs (example model name: Predict Owner); actual preprocessing and mining (clustering, classification, association, etc.) have been run inside Analysis Services models, which this project queries and visualizes.
 
 ## Tools and Technologies
 - `Microsoft Analysis Services` and `AdomdClient` for querying mining models
