@@ -1,0 +1,726 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="561357e5-9ea9-4c0f-917e-a3fa518f2f49" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Sales 1</ID>
+  <Name>Sales 1</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="1de08a84-d6b1-469f-98e2-19bdb4ad2941">
+    <DataSourceViewID>Car Sales</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="59f8bf90-9dac-4fde-b1a3-a538583b19d7">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="88b6cc04-5aee-4372-8541-ea9fb2c3794c">
+      <ID>Sale Id</ID>
+      <Name>Sale Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3bcae6c6-f4d2-4eb5-b76d-dfdf765aa4d5">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eeaaddc7-023b-4ce1-b8a3-40cfdf9f4474">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>sale_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4b3477ee-1b4d-4c18-b5a8-edd6c836d5d6">
+          <AttributeID>Sale Price</AttributeID>
+          <Name>Sale Price</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="838e028a-70da-4ae3-a7cd-a1aebbc5b070">
+          <AttributeID>Payment Method</AttributeID>
+          <Name>Payment Method</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="577cfd04-7fad-4e93-9d75-1216a808551e">
+          <AttributeID>Sales Region</AttributeID>
+          <Name>Sales Region</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="553177df-8512-446d-be9e-f52f27aa665e">
+          <AttributeID>Sale Month</AttributeID>
+          <Name>Sale Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fdbf2354-6000-40af-acc0-324913ab3961">
+          <AttributeID>Day Of Week</AttributeID>
+          <Name>Day Of Week</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e5d1e270-2346-4775-9618-1458c91cceb8">
+          <AttributeID>Season</AttributeID>
+          <Name>Season</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="372d3a34-b28f-4794-b3d2-4bb1cb42ea4b">
+          <AttributeID>Owner</AttributeID>
+          <Name>Owner</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="84a8b00a-22f8-4333-810d-82ea65c0f349">
+          <AttributeID>Car Id</AttributeID>
+          <Name>Car Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a661923c-4280-43e0-8e6c-a1272dc1c3e3">
+          <AttributeID>Salesperson Id</AttributeID>
+          <Name>Salesperson Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="eb9e0df2-fd30-4be7-b5c2-79bbb0da429e">
+          <AttributeID>Customer Id</AttributeID>
+          <Name>Customer Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fc58f49e-3ab3-4bad-bd73-21f0875f18bc">
+      <ID>Sale Price</ID>
+      <Name>Sale Price</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="deac7fdd-d069-46eb-b5b3-b4e8579ece7a">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e1b3896f-5a71-4fa9-bdcc-4f1f3dbaeee1">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>sale_price</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6f645f28-9788-45d9-942d-2077582091b6">
+      <ID>Payment Method</ID>
+      <Name>Payment Method</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="639d9a2b-a468-4024-802b-7198e16a8ff4">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dfb31314-dff3-4133-91fe-8eec7c84b138">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>payment_method</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9d7ba866-c242-4c27-9745-cae8c6a51011">
+      <ID>Sales Region</ID>
+      <Name>Sales Region</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a8bd7344-49cb-418b-96a0-b6bc87532766">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6ef47f38-3908-4b7a-88a4-3f28151bc81e">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>sales_region</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4f487d4b-1ed0-47e5-b67a-062630bc2da4">
+      <ID>Sale Month</ID>
+      <Name>Sale Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2ba5d669-207d-437d-850b-6e6aa650ecf9">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="07ad2143-608d-4610-8efb-b31b08c94a4c">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>sale_month</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9f0f03fd-6d02-4515-8f89-de12a3f31b85">
+      <ID>Day Of Week</ID>
+      <Name>Day Of Week</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="78d286c2-8fae-4244-82ea-da00a2cf54da">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="099a8f09-7a16-46e2-94b2-3976fb13c2bf">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>day_of_week</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8b1c0bac-c833-4964-9096-4ead81d27bc4">
+      <ID>Season</ID>
+      <Name>Season</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dd18d706-9064-4791-957b-4c4d62b53380">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="57d28585-a537-4356-947b-cfd81b6a494f">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>season</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fb7d4eb8-e4af-4dcf-974d-1bdc380b5830">
+      <ID>Owner</ID>
+      <Name>Owner</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="620c0e37-9286-422d-97eb-e47a41ba0225">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5b807c95-8a5b-4c02-a9f5-6f0b7ffc6234">
+            <TableID>dbo_sales</TableID>
+            <ColumnID>owner</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d4c8a147-7e4b-47b7-8b3b-150068d77939">
+      <ID>Car Id</ID>
+      <Name>Car Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="83543676-0aa2-4f9f-88a2-5387fb833f61">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e02683ca-a465-4b1a-a7b1-5d26a6a6e06b">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>car_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="05a90c23-1631-4f5e-ae59-8ffd8be8a9ca">
+          <AttributeID>Make</AttributeID>
+          <Name>Make</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="70790697-f9f8-4a0f-80dd-81d0058f7f4e">
+          <AttributeID>Model</AttributeID>
+          <Name>Model</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e0bf2759-704e-4af1-8465-d41720cbd3c5">
+          <AttributeID>Year</AttributeID>
+          <Name>Year</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3f375700-415c-41af-9d8b-e0ad22a43f01">
+          <AttributeID>Fuel Type</AttributeID>
+          <Name>Fuel Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fc2eb167-f047-4ff6-8de2-1c33b2804dd4">
+          <AttributeID>Transmission</AttributeID>
+          <Name>Transmission</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e453e819-6dbb-468c-9e19-36e5f0760010">
+          <AttributeID>Color</AttributeID>
+          <Name>Color</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dc862be9-48d9-4066-9015-1332b57fd17a">
+          <AttributeID>Engine</AttributeID>
+          <Name>Engine</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e58b8216-bfe7-48d4-b34d-7795acf97257">
+          <AttributeID>Max Power</AttributeID>
+          <Name>Max Power</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9242442d-5609-4e14-9fa0-5805abd3592a">
+          <AttributeID>Max Torque</AttributeID>
+          <Name>Max Torque</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="17023d02-6d4e-4944-b2ce-2dd183256c3a">
+          <AttributeID>Drivetrain</AttributeID>
+          <Name>Drivetrain</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b04caae1-b7c4-4871-a049-7e0be3fb7eca">
+          <AttributeID>Seating Capacity</AttributeID>
+          <Name>Seating Capacity</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="abece924-bca4-4f23-88e0-b2e653b16cf7">
+          <AttributeID>Fuel Tank Capacity</AttributeID>
+          <Name>Fuel Tank Capacity</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="94ddd702-b797-477f-bde1-6167aebd6fa7">
+      <ID>Make</ID>
+      <Name>Make</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="98ede37b-6d7d-4d18-90b8-251902047efb">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="009b7c7d-f0c5-4a2c-aa94-fa7409070041">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>make</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0debe126-a548-4b85-956d-48d0e01fc895">
+      <ID>Model</ID>
+      <Name>Model</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0d1a0ed7-6541-491e-935b-e03ab40ec3a9">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0a30c935-a896-4748-81c5-235dd19279fd">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>model</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4bbe16c2-2b48-41d2-bf9e-ac31d8bb4fdd">
+      <ID>Year</ID>
+      <Name>Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8274b2b6-9fd0-4b6c-bcaf-ff653e491495">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8ef682b3-72cb-4ad7-af5b-7a2cacb5db30">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3502fa2c-f7ec-4f79-9fd7-ebc1be83583d">
+      <ID>Fuel Type</ID>
+      <Name>Fuel Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d3c4a620-186b-4002-9643-8d2f60530709">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="28766cb7-7a91-4b43-b463-a5d19d500729">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>fuel_type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a2428de8-9dd6-4d50-80c2-3dfe398bbe50">
+      <ID>Transmission</ID>
+      <Name>Transmission</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="11c7b66c-705f-4b50-8d8d-d69c092c0836">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="aebf4022-712d-4cb3-80c2-25fd7e5d45a0">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>transmission</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a674d28d-cc9d-469d-a058-427b5de51afa">
+      <ID>Color</ID>
+      <Name>Color</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="08f056ca-881a-4d94-91c5-e281a08b372c">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="97a821d3-b496-4b9e-9c03-3a6674d6bc22">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>color</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="34010c66-92b4-44a6-b6d0-2ec889c7e132">
+      <ID>Engine</ID>
+      <Name>Engine</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ab258d33-5bf3-4b6e-8fd1-68cf6b8cf0c2">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="65c6ed78-82cb-4098-83e4-c471d2b12188">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>engine</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0555712d-869c-4153-9533-33df35d8ac7e">
+      <ID>Max Power</ID>
+      <Name>Max Power</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="58d5b1b7-18a3-47b5-877c-26164937d563">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ae2525c8-55cc-4533-8dbf-5b6a6621bb27">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>max_power</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="06b396ab-c843-4a40-94ab-3484dfd6a5e6">
+      <ID>Max Torque</ID>
+      <Name>Max Torque</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="32a6f012-04d0-4f4f-b5e3-a958728025f6">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="21328d14-fdc8-4110-b19a-ab893a76f3f9">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>max_torque</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b1ad0272-081b-4562-8b11-6dfe593b088b">
+      <ID>Drivetrain</ID>
+      <Name>Drivetrain</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8a1bdcef-0dbd-4d65-8dbd-12b02d9c5f36">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="86b53090-c660-457a-ba6a-91ae48d6713c">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>drivetrain</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="058461b3-f36a-4073-9da9-719697e6388e">
+      <ID>Seating Capacity</ID>
+      <Name>Seating Capacity</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="956843b2-65cb-4195-a36e-619d7e92fa79">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="de9f940e-61c3-4ee8-9512-4532de581530">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>seating_capacity</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="77b1300b-5891-423f-a08a-ae3c8f7d879d">
+      <ID>Fuel Tank Capacity</ID>
+      <Name>Fuel Tank Capacity</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8f9c64a0-cb7c-4a61-a141-e54522f9b640">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c09a5d98-6fe0-43a1-b68b-500475deabca">
+            <TableID>dbo_cars</TableID>
+            <ColumnID>fuel_tank_capacity</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9cfcfe12-373b-48d6-82ef-a04e9e45a91b">
+      <ID>Salesperson Id</ID>
+      <Name>Salesperson Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a8d15cc1-0de6-4c1c-9a62-161ecaa546a9">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1561a85a-887a-43c2-8562-6a1e24bb35d4">
+            <TableID>dbo_salespeople</TableID>
+            <ColumnID>salesperson_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="211d741e-86ce-483d-9bb3-f57e765bae5e">
+          <AttributeID>Name</AttributeID>
+          <Name>Name_</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="22fe6c94-0cf7-4dd1-acd6-8515a186d70d">
+      <ID>Name</ID>
+      <Name>Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6a2d7287-86a1-42c7-a9e2-e5879a95ca55">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d3e8a709-5a58-4abd-bbc4-15c4b346de4b">
+            <TableID>dbo_salespeople</TableID>
+            <ColumnID>name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="07c710df-8101-47f8-b22b-d8f7897b0dcd">
+      <ID>Customer Id</ID>
+      <Name>Customer Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fb0c484b-41e6-4b88-ba57-6851d77c219b">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="485d53b9-2ba5-4ac7-895d-decfb0a2cdc0">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>customer_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="2ca9882d-462e-4ec6-bfaa-0fb66ce779fb">
+          <AttributeID>Customers - Name</AttributeID>
+          <Name>Customers - Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="437795e1-8e8f-4ab1-bfd2-555e4b95372d">
+          <AttributeID>Age</AttributeID>
+          <Name>Age</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="331f5b5e-fca0-41f8-9c8a-614570be25fb">
+          <AttributeID>Gender</AttributeID>
+          <Name>Gender</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3d77576d-7984-42aa-9000-02aa0ccae2e9">
+          <AttributeID>Income</AttributeID>
+          <Name>Income</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="360dddc9-8010-49af-95f3-1d4b701a86f7">
+          <AttributeID>Income Type</AttributeID>
+          <Name>Income Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6f0deca1-f7f1-494c-9862-3ab8b2403cdd">
+          <AttributeID>Education Type</AttributeID>
+          <Name>Education Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="127ae2d5-8bfa-487c-abef-e37a4b3e1a7f">
+          <AttributeID>Family Status</AttributeID>
+          <Name>Family Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4edf9fd7-b1e0-484d-b619-26171c7fe23a">
+          <AttributeID>Housing Type</AttributeID>
+          <Name>Housing Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f7115335-6205-468b-b332-99a4695de92a">
+          <AttributeID>Family Members</AttributeID>
+          <Name>Family Members</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3e747216-b844-4591-9c44-8ca644661ff3">
+      <ID>Customers - Name</ID>
+      <Name>Customers - Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8cc1829f-1885-4075-a769-e639731747fc">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fd6715eb-3527-47db-89a9-73b79e500320">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6619ef1c-ce68-4bdf-bed7-3553da81fd67">
+      <ID>Age</ID>
+      <Name>Age</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ac9a359c-6058-4098-86fc-7827dab65945">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="64be0cc8-a535-472b-a562-03306dc06860">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>age</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ea11816a-7bc4-4223-ac34-191f042fd092">
+      <ID>Gender</ID>
+      <Name>Gender</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="660bfcba-d0f5-4bab-9755-5d265b771402">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9ee15c09-9efb-417f-8bd7-18711698a42d">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>gender</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="31cb9f5e-e69e-4677-b145-e68c37b50e17">
+      <ID>Income</ID>
+      <Name>Income</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4c7276b6-1814-46cb-9b56-b25a2a50a84a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="56af89fd-1da6-4955-80dc-4222f8376b90">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>income</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e817bf21-725e-4271-b3c1-8df54ebce891">
+      <ID>Income Type</ID>
+      <Name>Income Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0f8bb890-e98d-4ac5-8581-00cf4b7bc7f7">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7d5801c7-48f6-4fc5-a8da-f84d879f5ea0">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>income_type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="97d25a03-cdc1-413b-abc9-c57e095593ab">
+      <ID>Education Type</ID>
+      <Name>Education Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1c4fb10b-c7b0-4ab9-990e-ed401fbfdba5">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="663a393b-9ae8-48fe-8aba-88216fdde7a4">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>education_type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ee3944ac-e201-4f60-875e-6c09d815f3e5">
+      <ID>Family Status</ID>
+      <Name>Family Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c08338ea-0006-4976-88ac-732a34d54343">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="916a0efb-472b-43c1-b19c-6ab44c699366">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>family_status</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8fcd495f-8abc-4aa7-a6a6-30b7bd742ba1">
+      <ID>Housing Type</ID>
+      <Name>Housing Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d01c3a96-1c80-466a-9e82-751bac287418">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0972290e-0da3-4dc8-a741-5d0bc1281d09">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>housing_type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d99e276a-1d14-48b4-a2c4-70f51beb24de">
+      <ID>Family Members</ID>
+      <Name>Family Members</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="14625f9e-8d23-4f31-b7d9-1f726b3554fb">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c6f69990-8638-4cc7-adc0-fd6326458618">
+            <TableID>dbo_customers</TableID>
+            <ColumnID>family_members</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

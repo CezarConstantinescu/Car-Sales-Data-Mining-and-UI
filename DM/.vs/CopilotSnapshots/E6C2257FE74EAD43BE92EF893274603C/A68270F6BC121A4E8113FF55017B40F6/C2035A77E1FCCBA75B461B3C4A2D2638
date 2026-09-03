@@ -1,0 +1,162 @@
+﻿namespace PredictOwnerApp;
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Windows.Forms;
+using ScottPlot;
+
+public partial class Form1 : Form
+{
+    private TextBox txtConnString;
+    private ComboBox cbPaymentMethod;
+    private NumericUpDown numPriceStart;
+    private NumericUpDown numPriceEnd;
+    private Button btnRun;
+    private ScottPlot.WinForms.FormsPlot formsPlot;
+
+    public Form1()
+    {
+        InitializeComponent();
+        InitializeCustomComponent();
+    }
+
+    private void InitializeCustomComponent()
+    {
+        this.Text = "Predict Owner - Data Mining Viewer";
+        this.Width = 1000;
+        this.Height = 700;
+
+        TableLayoutPanel layout = new TableLayoutPanel();
+        layout.Dock = DockStyle.Fill;
+        layout.ColumnCount = 2;
+        layout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 350));
+        layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        layout.RowCount = 1;
+        layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+
+        Panel controlPanel = new Panel();
+        controlPanel.Dock = DockStyle.Fill;
+        controlPanel.Padding = new Padding(10);
+
+        formsPlot = new ScottPlot.WinForms.FormsPlot();
+        formsPlot.Dock = DockStyle.Fill;
+
+        layout.Controls.Add(controlPanel, 0, 0);
+        layout.Controls.Add(formsPlot, 1, 0);
+
+        int y = 20;
+
+        System.Windows.Forms.Label lblConn = new System.Windows.Forms.Label() { Text = "Connection String:", Location = new Point(10, y), Width = 120 };
+        txtConnString = new TextBox() { Text = "Provider=MSOLAP;Data Source=localhost;Initial Catalog=DM;", Location = new Point(140, y), Width = 180 };
+        controlPanel.Controls.Add(lblConn);
+        controlPanel.Controls.Add(txtConnString);
+        y += 40;
+
+        System.Windows.Forms.Label lblPayment = new System.Windows.Forms.Label() { Text = "Payment Method:", Location = new Point(10, y), Width = 120 };
+        cbPaymentMethod = new ComboBox() { Location = new Point(140, y), Width = 180 };
+        cbPaymentMethod.Items.AddRange(new string[] { "Cash", "Credit", "Lease" });
+        cbPaymentMethod.SelectedIndex = 1;
+        controlPanel.Controls.Add(lblPayment);
+        controlPanel.Controls.Add(cbPaymentMethod);
+        y += 40;
+
+        System.Windows.Forms.Label lblStart = new System.Windows.Forms.Label() { Text = "Sale Price Start:", Location = new Point(10, y), Width = 120 };
+        numPriceStart = new NumericUpDown() { Location = new Point(140, y), Width = 180, Minimum = 0, Maximum = 1000000, Value = 10000 };
+        controlPanel.Controls.Add(lblStart);
+        controlPanel.Controls.Add(numPriceStart);
+        y += 40;
+
+        System.Windows.Forms.Label lblEnd = new System.Windows.Forms.Label() { Text = "Sale Price End:", Location = new Point(10, y), Width = 120 };
+        numPriceEnd = new NumericUpDown() { Location = new Point(140, y), Width = 180, Minimum = 0, Maximum = 1000000, Value = 50000 };
+        controlPanel.Controls.Add(lblEnd);
+        controlPanel.Controls.Add(numPriceEnd);
+        y += 40;
+
+        btnRun = new Button() { Text = "Run Prediction Query", Location = new Point(10, y), Width = 310, Height = 40 };
+        btnRun.Click += BtnRun_Click;
+        controlPanel.Controls.Add(btnRun);
+
+        this.Controls.Add(layout);
+        
+        formsPlot.Plot.Title("Sale Price vs Probability");
+        formsPlot.Plot.XLabel("Sale Price");
+        formsPlot.Plot.YLabel("Probability");
+        formsPlot.Refresh();
+    }
+
+    private void BtnRun_Click(object? sender, EventArgs e)
+    {
+        string connStr = txtConnString.Text;
+        string pmtMethod = cbPaymentMethod.Text;
+        double startPrice = (double)numPriceStart.Value;
+        double endPrice = (double)numPriceEnd.Value;
+
+        if (startPrice >= endPrice)
+        {
+            MessageBox.Show("Start price must be less than end price.");
+            return;
+        }
+
+        int steps = 20;
+        double stepSize = (endPrice - startPrice) / steps;
+
+        List<double> xs = new List<double>();
+        List<double> ys = new List<double>();
+
+        try
+        {
+            using (OleDbConnection conn = new OleDbConnection(connStr))
+            {
+                conn.Open();
+
+                for (int i = 0; i <= steps; i++)
+                {
+                    double currentPrice = startPrice + (i * stepSize);
+                    
+                    string dmx = $@"
+                        SELECT
+                            PredictProbability([Predict Owner].[Owner]) AS Prob
+                        FROM
+                            [Predict Owner]
+                        NATURAL PREDICTION JOIN
+                        (
+                            SELECT '{pmtMethod}' AS [Payment Method],
+                                   {currentPrice} AS [Sale Price]
+                        ) AS t";
+
+                    using (OleDbCommand cmd = new OleDbCommand(dmx, conn))
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            double prob = 0;
+                            if (!reader.IsDBNull(0))
+                                prob = Convert.ToDouble(reader[0]);
+                        
+                            xs.Add(currentPrice);
+                            ys.Add(prob);
+                        }
+                    }
+                }
+            }
+
+            formsPlot.Plot.Clear();
+            if (xs.Count > 0)
+            {
+                formsPlot.Plot.Add.Scatter(xs.ToArray(), ys.ToArray());
+                formsPlot.Plot.Axes.SetLimitsX(startPrice, endPrice);
+                formsPlot.Plot.Title($"Prediction Probability for {pmtMethod}");
+                formsPlot.Plot.XLabel("Sale Price");
+                formsPlot.Plot.YLabel("Probability");
+            }
+            formsPlot.Refresh();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error running prediction: {ex.Message}");
+        }
+    }
+}

@@ -1,0 +1,663 @@
+﻿<MiningStructure xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="73c88d19-b167-4090-9359-3bec4a2b4381" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Sales Clustering</ID>
+  <Name>Sales Clustering</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>MDXFilterComponent</Name>
+      <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;Filter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/SQLServer/reporting/QuerySpecification"&gt;&lt;FilterItems xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition" /&gt;&lt;/Filter&gt;</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="CubeDimensionBinding" dwd:design-time-name="4028e3c8-c9e6-4c36-90d8-6c5c2ceb166f">
+    <DataSourceID>.</DataSourceID>
+    <CubeID>Car Sales</CubeID>
+    <CubeDimensionID>Sales 1</CubeDimensionID>
+    <Filter></Filter>
+  </Source>
+  <Columns>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="626f1a42-deaa-4332-be77-3ba2e4cbd2d7">
+      <ID>Sale Id</ID>
+      <Name>Sale Id</Name>
+      <IsKey>true</IsKey>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="02c47532-ba9c-4966-85ea-236c54e9c16d">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Sale Id</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Key</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="448f5daf-f164-40c5-9526-e3ff18bf13bb">
+      <ID>Age</ID>
+      <Name>Age</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="b9edb517-ba93-4f46-bfab-d4c75bd93dfa">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Age</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="ca82534d-d779-430f-8d8d-0dfae77ceefd">
+      <ID>Car Id</ID>
+      <Name>Car Id</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="db82e8c5-3379-4872-ace1-7c2cbe4dec5f">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Car Id</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="fd4e476e-5e50-466a-8532-f9a01cfd9c65">
+      <ID>Color</ID>
+      <Name>Color</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="028f6fdb-d178-4d48-8774-a88294b8bb9a">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Color</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="90cb1fe5-bee0-49ce-8a65-7f35986dc8cb">
+      <ID>Customer Id</ID>
+      <Name>Customer Id</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="06d04468-e25e-4ac8-bfa5-0151b32f36f2">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Customer Id</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="1cd0d06d-9ce2-403a-8a39-48b284c6ac58">
+      <ID>Customers - Name</ID>
+      <Name>Customers - Name</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="f4367bcb-cccb-4ba5-a920-634ba14fb6f1">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Customers - Name</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="7b9841ab-5dc6-4046-8509-76ca42c95c90">
+      <ID>Day Of Week</ID>
+      <Name>Day Of Week</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="d4e264ab-eebe-4572-851e-91e89152d2f9">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Day Of Week</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="71be3727-8ddd-417a-b1e4-3cd32c83eb2e">
+      <ID>Drivetrain</ID>
+      <Name>Drivetrain</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="55aeaf99-e27e-4bb3-89ae-b757998f3977">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Drivetrain</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="e909e251-36ae-4a56-a04f-0e148a96c4c8">
+      <ID>Education Type</ID>
+      <Name>Education Type</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="b8421af0-0cdc-42c4-ab10-bda574a4ba9e">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Education Type</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="69a960bc-0f50-479f-aba5-c9dcce887219">
+      <ID>Engine</ID>
+      <Name>Engine</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="4b591421-83b9-484e-bead-ead72d5f2a71">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Engine</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="70738ecd-d29f-4868-be41-5805ca1233ae">
+      <ID>Family Members</ID>
+      <Name>Family Members</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="e6ffeaa0-2032-486d-abb3-b37c60d0f52b">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Family Members</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="e4bc8ca3-78be-4ede-9989-c218c3a2fc2c">
+      <ID>Family Status</ID>
+      <Name>Family Status</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="5341c8e7-17ee-4696-aa5c-fa22e970f5ef">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Family Status</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="63a231cf-f85d-47f1-ad37-d5eb6ce77200">
+      <ID>Fuel Tank Capacity</ID>
+      <Name>Fuel Tank Capacity</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="e4d1ffdb-791e-411f-8afb-258cbbf43dd8">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Fuel Tank Capacity</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="88472eb8-4ade-4edf-9530-5f92e6f1d0ea">
+      <ID>Fuel Type</ID>
+      <Name>Fuel Type</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="c32e09a4-e78f-4f78-9897-69fac8a91289">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Fuel Type</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="b14a15bd-4354-4969-b70c-cc85259b3345">
+      <ID>Gender</ID>
+      <Name>Gender</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="79c91bb9-2563-4826-9477-52fc0f193ff6">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Gender</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="d0c1f66d-05d0-472b-a1d6-51d7a3d8cae6">
+      <ID>Housing Type</ID>
+      <Name>Housing Type</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="bd615143-cae5-4795-a9f2-80159aa79d6d">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Housing Type</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="b66684e8-1aa3-4c7e-b6f8-12483b463b76">
+      <ID>Income</ID>
+      <Name>Income</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="b55e8a34-dd38-467a-8d3a-53001fdf12da">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Income</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="13caaad5-4b1d-47dd-b50b-e0286283f080">
+      <ID>Income Type</ID>
+      <Name>Income Type</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="a2beb001-b986-4659-aae1-2007a02de654">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Income Type</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="b23bb9d9-3ef2-49d8-96cd-00bef91694f9">
+      <ID>Make</ID>
+      <Name>Make</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="d324744e-e838-4dc0-ba33-c1d495b740b1">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Make</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="749350cd-5a02-4eb7-9f66-5870c225ad62">
+      <ID>Max Power</ID>
+      <Name>Max Power</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="efc41bc2-f089-4687-b688-4e96063f8fc1">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Max Power</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="358e8e7b-7253-4f24-adac-ae24352e8d17">
+      <ID>Max Torque</ID>
+      <Name>Max Torque</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="3956311f-7b54-4736-984f-540cad7fac9d">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Max Torque</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="d53f112a-d858-48c4-b9d5-ed74ebea1709">
+      <ID>Model</ID>
+      <Name>Model</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="7124b59e-0c63-480d-9bb2-62bf66cb9840">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Model</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="021a544c-2d1d-413d-84a9-7e8c77992a48">
+      <ID>Name</ID>
+      <Name>Name</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="a6051a74-9935-445c-bc8c-6eb17f3842bf">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Name</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="b8bb620e-cd8c-4f42-9e19-c90691757611">
+      <ID>Owner</ID>
+      <Name>Owner</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="846842cc-7483-44b3-a168-49ce0ea67fee">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Owner</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="5812496e-a105-4307-87ed-fefa2b95fdcc">
+      <ID>Payment Method</ID>
+      <Name>Payment Method</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="3b7b696c-e4e0-4679-99cb-1852e5b02ec6">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Payment Method</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="bdfaad0e-3de3-4c86-9d0c-988658aaf96c">
+      <ID>Sale Month</ID>
+      <Name>Sale Month</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="25463129-09b5-4cbb-9e16-5bb4503e51c5">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Sale Month</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="99b1fd9d-2db7-4eb8-929e-74df00c722ea">
+      <ID>Sale Price</ID>
+      <Name>Sale Price</Name>
+      <Type>Double</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="9602996e-a545-464d-8118-1afdb6bcded5">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Sale Price</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="bec6f089-f63d-418a-a453-377babc52668">
+      <ID>Sales Region</ID>
+      <Name>Sales Region</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="8fa92410-d127-4219-80f1-befd42ec56d0">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Sales Region</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="e5683ac0-22b9-4cf5-b07b-07552ea4224b">
+      <ID>Salesperson Id</ID>
+      <Name>Salesperson Id</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="d5d699a7-846d-4784-bd37-fc27793b7916">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Salesperson Id</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="dbc1f6df-4f1e-4f25-b599-4f02ff403339">
+      <ID>Season</ID>
+      <Name>Season</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="6fe5abf4-3afb-4ded-abdc-3c3092abdeb8">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Season</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="3605f8f9-9985-4e15-952c-5c2d798daf53">
+      <ID>Seating Capacity</ID>
+      <Name>Seating Capacity</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="3dff1452-94d4-423d-ac14-23b2278d972f">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Seating Capacity</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="60b963d7-64c2-4aec-af9b-27df5c7bc3f0">
+      <ID>Transmission</ID>
+      <Name>Transmission</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="b87fdf9b-733d-4873-a4e6-4932e4878a89">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Transmission</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="0e453cfd-566d-4dcb-94d1-70c367c78c81">
+      <ID>Year</ID>
+      <Name>Year</Name>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="62c881e2-6788-4d8f-8b4a-920045d9cd33">
+        <CubeID>Car Sales</CubeID>
+        <CubeDimensionID>Sales 1</CubeDimensionID>
+        <AttributeID>Year</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="254485a7-61a8-4563-bb57-2b8918643d6d">
+      <ID>Sale Price 1</ID>
+      <Name>Sale Price 1</Name>
+      <Type>Double</Type>
+      <Source xsi:type="MeasureBinding" dwd:design-time-name="5b4e90be-48fc-4f25-8dd7-1c31e4ff24fc">
+        <MeasureID>Sale Price</MeasureID>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="1928bbe4-2285-4461-9bcf-b2ca21d1aa09">
+      <ID>Sales Count</ID>
+      <Name>Sales Count</Name>
+      <Type>Long</Type>
+      <Source xsi:type="MeasureBinding" dwd:design-time-name="f2c41e84-33c9-463f-91b8-69953c38661d">
+        <MeasureID>Sales Count</MeasureID>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+  </Columns>
+  <MiningModels>
+    <MiningModel dwd:design-time-name="34c13501-ade3-4735-b53d-9d2544202cde">
+      <ID>Sales Clustering</ID>
+      <Name>Sales Clustering</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Clustering</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="a6553904-27b9-4bd5-b8ed-5d55db13bfbc">
+          <ID>Sale Id</ID>
+          <Name>Sale Id</Name>
+          <SourceColumnID>Sale Id</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="b4881976-0a93-4ab9-8c5f-f182f52cce1a">
+          <ID>Age</ID>
+          <Name>Age</Name>
+          <SourceColumnID>Age</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="1892ccba-def2-4ab1-b43f-193cf89095dd">
+          <ID>Car Id</ID>
+          <Name>Car Id</Name>
+          <SourceColumnID>Car Id</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="d07f050b-9fbf-4704-8a6a-b6c93dc7beb1">
+          <ID>Color</ID>
+          <Name>Color</Name>
+          <SourceColumnID>Color</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="1bb491b3-1ab8-4845-92c0-18e11345045a">
+          <ID>Customer Id</ID>
+          <Name>Customer Id</Name>
+          <SourceColumnID>Customer Id</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="2f687917-ef05-4e6a-a350-4c51c6a77a38">
+          <ID>Customers - Name</ID>
+          <Name>Customers - Name</Name>
+          <SourceColumnID>Customers - Name</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="9d9d8526-4102-4531-b4d2-6f582eee9b5e">
+          <ID>Day Of Week</ID>
+          <Name>Day Of Week</Name>
+          <SourceColumnID>Day Of Week</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="2efeaccf-b05f-4024-8f84-c48f9f90edba">
+          <ID>Drivetrain</ID>
+          <Name>Drivetrain</Name>
+          <SourceColumnID>Drivetrain</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="45ff64a2-1033-4b4f-ac22-7a4edbec3744">
+          <ID>Education Type</ID>
+          <Name>Education Type</Name>
+          <SourceColumnID>Education Type</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="9d8e4dc7-6ae5-4202-b75c-956ca1901a91">
+          <ID>Engine</ID>
+          <Name>Engine</Name>
+          <SourceColumnID>Engine</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="57e23da1-6e15-44af-a325-6c3e0060bc0a">
+          <ID>Family Members</ID>
+          <Name>Family Members</Name>
+          <SourceColumnID>Family Members</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4df26b7d-5bf6-4e7f-9c7f-26dddb7abd23">
+          <ID>Family Status</ID>
+          <Name>Family Status</Name>
+          <SourceColumnID>Family Status</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="69921a4d-f739-4499-91ee-6052bab756d8">
+          <ID>Fuel Tank Capacity</ID>
+          <Name>Fuel Tank Capacity</Name>
+          <SourceColumnID>Fuel Tank Capacity</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="6870bb33-784a-4f98-86ea-381fbd4abf56">
+          <ID>Fuel Type</ID>
+          <Name>Fuel Type</Name>
+          <SourceColumnID>Fuel Type</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="321af84f-0237-4d05-8a3a-30390d7fad70">
+          <ID>Gender</ID>
+          <Name>Gender</Name>
+          <SourceColumnID>Gender</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="9ec38fd5-84e4-4aca-959b-73022ddda728">
+          <ID>Housing Type</ID>
+          <Name>Housing Type</Name>
+          <SourceColumnID>Housing Type</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="6a83a762-4281-4ed1-9cd8-39ee28124463">
+          <ID>Income</ID>
+          <Name>Income</Name>
+          <SourceColumnID>Income</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="bda55ed5-d596-4a3e-b8ff-e55db0b9aa92">
+          <ID>Income Type</ID>
+          <Name>Income Type</Name>
+          <SourceColumnID>Income Type</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4aac85ef-74ff-49d5-95f1-f0a190aa1c81">
+          <ID>Make</ID>
+          <Name>Make</Name>
+          <SourceColumnID>Make</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="b37f6426-6ed9-4fbf-b194-cc0864bc7be5">
+          <ID>Max Power</ID>
+          <Name>Max Power</Name>
+          <SourceColumnID>Max Power</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="34c95177-fdc8-4580-a70c-dbe90086a712">
+          <ID>Max Torque</ID>
+          <Name>Max Torque</Name>
+          <SourceColumnID>Max Torque</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="b358336e-7e76-40d4-8b0a-1315a893cfb6">
+          <ID>Model</ID>
+          <Name>Model</Name>
+          <SourceColumnID>Model</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="903a5314-f5a0-4438-ac5b-47ddf8b61195">
+          <ID>Name</ID>
+          <Name>Name</Name>
+          <SourceColumnID>Name</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="dbb4acaa-4970-4924-8123-9b4a96f20b85">
+          <ID>Owner</ID>
+          <Name>Owner</Name>
+          <SourceColumnID>Owner</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="147917d4-958d-4589-a3b9-47fb1e44328d">
+          <ID>Payment Method</ID>
+          <Name>Payment Method</Name>
+          <SourceColumnID>Payment Method</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4ecdb00d-0160-4355-bfb2-e06a626d0916">
+          <ID>Sale Month</ID>
+          <Name>Sale Month</Name>
+          <SourceColumnID>Sale Month</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="23c86419-0a7c-401f-9341-24e9f069ec29">
+          <ID>Sale Price</ID>
+          <Name>Sale Price</Name>
+          <SourceColumnID>Sale Price</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="9dd70f55-7150-48e9-aae3-22cca825c0f3">
+          <ID>Sales Region</ID>
+          <Name>Sales Region</Name>
+          <SourceColumnID>Sales Region</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="ad4ffcbf-0d33-4745-ba65-3ac16770566f">
+          <ID>Salesperson Id</ID>
+          <Name>Salesperson Id</Name>
+          <SourceColumnID>Salesperson Id</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="48a93db0-32d8-4283-a821-6aad2f2dbdea">
+          <ID>Season</ID>
+          <Name>Season</Name>
+          <SourceColumnID>Season</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="efa7f44d-63f6-4bea-ac07-c7bd7829e1bd">
+          <ID>Seating Capacity</ID>
+          <Name>Seating Capacity</Name>
+          <SourceColumnID>Seating Capacity</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="f1fb6be2-7667-4b34-a8a9-b87c6018d218">
+          <ID>Transmission</ID>
+          <Name>Transmission</Name>
+          <SourceColumnID>Transmission</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="1bdf04e6-7103-45a0-8529-6b7e9c870f1e">
+          <ID>Year</ID>
+          <Name>Year</Name>
+          <SourceColumnID>Year</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="6ca16e7d-6041-426f-a2c9-8cc637d032a3">
+          <ID>Sale Price 1</ID>
+          <Name>Sale Price 1</Name>
+          <SourceColumnID>Sale Price 1</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="706dc57f-6a88-4fd6-bda5-88a12d8ed072">
+          <ID>Sales Count</ID>
+          <Name>Sales Count</Name>
+          <SourceColumnID>Sales Count</SourceColumnID>
+        </Column>
+      </Columns>
+      <AllowDrillThrough>true</AllowDrillThrough>
+    </MiningModel>
+  </MiningModels>
+  <ddl100_100:HoldoutMaxPercent>30</ddl100_100:HoldoutMaxPercent>
+</MiningStructure>

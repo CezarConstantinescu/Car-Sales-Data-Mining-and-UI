@@ -1,0 +1,183 @@
+﻿using System;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using Microsoft.AnalysisServices.AdomdClient;
+
+namespace DMViewer
+{
+    public class MainForm : Form
+    {
+        private TextBox txtConnectionString;
+        private Button btnConnect;
+        private ComboBox cbModels;
+        private DataGridView dataGridView;
+        private Chart chart;
+        
+        private AdomdConnection connection;
+        
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+        
+        private void InitializeComponent()
+        {
+            this.Text = "Data Mining Viewer - Predict Owner";
+            this.Size = new Size(800, 600);
+            
+            TableLayoutPanel layout = new TableLayoutPanel();
+            layout.Dock = DockStyle.Fill;
+            layout.RowCount = 3;
+            layout.ColumnCount = 1;
+            layout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            layout.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            layout.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            
+            Panel topPanel = new Panel { Dock = DockStyle.Fill };
+            txtConnectionString = new TextBox { Width = 300, Text = "Data Source=localhost;Catalog=DM;" };
+            btnConnect = new Button { Text = "Connect", Left = 310 };
+            btnConnect.Click += BtnConnect_Click;
+            
+            cbModels = new ComboBox { Left = 400, Width = 150, DropDownStyle = ComboBoxStyle.DropDownList };
+            cbModels.SelectedIndexChanged += CbModels_SelectedIndexChanged;
+            
+            topPanel.Controls.Add(txtConnectionString);
+            topPanel.Controls.Add(btnConnect);
+            topPanel.Controls.Add(cbModels);
+            
+            dataGridView = new DataGridView { Dock = DockStyle.Fill, ReadOnly = true, SelectionMode = DataGridViewSelectionMode.FullRowSelect };
+            
+            chart = new Chart { Dock = DockStyle.Fill };
+            ChartArea chartArea = new ChartArea("MainArea");
+            chart.ChartAreas.Add(chartArea);
+            
+            layout.Controls.Add(topPanel, 0, 0);
+            layout.Controls.Add(dataGridView, 0, 1);
+            layout.Controls.Add(chart, 0, 2);
+            
+            this.Controls.Add(layout);
+        }
+
+        private void BtnConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (connection != null && connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+                
+                connection = new AdomdConnection(txtConnectionString.Text);
+                connection.Open();
+                
+                LoadModels();
+                MessageBox.Show("Connected successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting: " + ex.Message);
+            }
+        }
+        
+        private void LoadModels()
+        {
+            cbModels.Items.Clear();
+            
+            // Discover mining models available in the catalog
+            AdomdCommand cmd = new AdomdCommand("SELECT MODEL_NAME FROM $system.DMSCHEMA_MINING_MODELS", connection);
+            using (AdomdDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    cbModels.Items.Add(reader.GetString(0));
+                }
+            }
+            
+            if (cbModels.Items.Count > 0)
+            {
+                // Try selecting "Predict Owner" if it is available
+                int idx = cbModels.Items.IndexOf("Predict Owner");
+                cbModels.SelectedIndex = idx >= 0 ? idx : 0;
+            }
+        }
+        
+        private void CbModels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbModels.SelectedItem == null) return;
+            
+            string modelName = cbModels.SelectedItem.ToString();
+            LoadDataForModel(modelName);
+        }
+        
+        private void LoadDataForModel(string modelName)
+        {
+            try
+            {
+                // Fetch basic supportive model content to visualize properties
+                string query = $"SELECT NODE_NAME, NODE_CAPTION, NODE_SUPPORT, NODE_TYPE FROM [{modelName}].CONTENT WHERE NODE_TYPE < 100";
+
+                using (AdomdCommand cmd = new AdomdCommand(query, connection))
+                using (AdomdDataReader reader = cmd.ExecuteReader())
+                {
+                    DataTable dt = new DataTable();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dt.Columns.Add(reader.GetName(i), typeof(object));
+                    }
+
+                    while (reader.Read())
+                    {
+                        object[] values = new object[reader.FieldCount];
+                        reader.GetValues(values);
+                        dt.Rows.Add(values);
+                    }
+
+                    dataGridView.DataSource = dt;
+
+                    UpdateChart(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data for model: " + ex.Message);
+            }
+        }
+        
+        private void UpdateChart(DataTable dt)
+        {
+            chart.Series.Clear();
+            Series series = new Series("Support");
+            series.ChartType = SeriesChartType.Column;
+            series.IsValueShownAsLabel = true;
+            
+            foreach (DataRow row in dt.Rows)
+            {
+                string name = row["NODE_CAPTION"].ToString();
+                if (string.IsNullOrEmpty(name)) name = row["NODE_NAME"].ToString();
+                
+                // Truncate long names for chart
+                if (name.Length > 20) name = name.Substring(0, 17) + "...";
+                
+                double support = 0;
+                if (row["NODE_SUPPORT"] != DBNull.Value)
+                {
+                    support = Convert.ToDouble(row["NODE_SUPPORT"]);
+                }
+                series.Points.AddXY(name, support);
+            }
+            
+            chart.Series.Add(series);
+        }
+        
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            if (connection != null && connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+            base.OnFormClosed(e);
+        }
+    }
+}
